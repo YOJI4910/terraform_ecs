@@ -1,6 +1,5 @@
 data "terraform_remote_state" "aws_iam" {
   backend = "s3"
-
   config = {
     bucket = "terraform-tfstate-bucket-yoji4910"
     key    = "sample/iam/terraform.tfstate"
@@ -10,7 +9,6 @@ data "terraform_remote_state" "aws_iam" {
 
 data "terraform_remote_state" "vpc" {
   backend = "s3"
-
   config = {
     bucket = "terraform-tfstate-bucket-yoji4910"
     key    = "sample/vpc/terraform.tfstate"
