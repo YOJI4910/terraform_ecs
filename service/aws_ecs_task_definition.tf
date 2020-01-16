@@ -1,7 +1,13 @@
 resource "aws_ecs_task_definition" "sample-task" {
-  # TaskDefinitionの名前を指定
   family                = "webapp-service"
   container_definitions = file("./container_definitions/service.json")
   task_role_arn         = data.terraform_remote_state.aws_iam.outputs.ecs_task_role_arn
+  network_mode          = "bridge"
+}
+
+resource "aws_ecs_task_definition" "rails-migrate" {
+  family                = "rails-migrate"
+  container_definitions = file("./container_definitions/migration.json")
+  execution_role_arn    = data.terraform_remote_state.aws_iam.outputs.ecs_task_role_arn
   network_mode          = "bridge"
 }

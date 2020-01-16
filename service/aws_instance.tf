@@ -1,12 +1,13 @@
 # ECS-optimize AMIのidをネットから取得
-data aws_ssm_parameter amzn2_ami {
-  name = "/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2"
-}
+# data aws_ssm_parameter amzn2_ami {
+#   name = "/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2"
+# }
+# ami                         = data.aws_ssm_parameter.amzn2_ami.value
 
 resource "aws_instance" "sample" {
-  ami                         = data.aws_ssm_parameter.amzn2_ami.value
-  instance_type = "t2.small"
-  monitoring                  = false
+  ami                         = "ami-0633805928291a0db"
+  instance_type               = "t2.micro"
+  monitoring                  = true
   iam_instance_profile        = data.terraform_remote_state.aws_iam.outputs.ecs_instance_profile_name
   subnet_id                   = data.terraform_remote_state.vpc.outputs.public_subnet_1_id
   user_data                   = file("./user_data.sh")
