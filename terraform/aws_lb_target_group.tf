@@ -2,7 +2,7 @@ resource "aws_lb_target_group" "http" {
   name     = "sample-http"
   port     = 3000
   protocol = "HTTP"
-  vpc_id   = data.terraform_remote_state.vpc.outputs.vpc_id
+  vpc_id   = aws_vpc.vpc.id
 
   health_check {
     interval            = 30

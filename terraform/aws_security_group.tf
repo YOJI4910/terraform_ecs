@@ -1,7 +1,7 @@
 resource "aws_security_group" "instance" {
   name        = "instance"
   description = "instance sg"
-  vpc_id      = data.terraform_remote_state.vpc.outputs.vpc_id
+  vpc_id      = aws_vpc.vpc.id
   tags = {
     Name = "rails_i_sg"
   }
@@ -34,7 +34,7 @@ resource "aws_security_group" "instance" {
 resource "aws_security_group" "alb" {
   name        = "sample-rails-alb"
   description = "http and https"
-  vpc_id      = data.terraform_remote_state.vpc.outputs.vpc_id
+  vpc_id      = aws_vpc.vpc.id
   tags = {
     Name = "rails_alb_sg"
   }
@@ -65,7 +65,7 @@ resource "aws_security_group" "alb" {
 resource "aws_security_group" "db" {
   name        = "sample-db"
   description = "DB"
-  vpc_id      = data.terraform_remote_state.vpc.outputs.vpc_id
+  vpc_id      = aws_vpc.vpc.id
   tags = {
     Name = "rails_db_sg"
   }

@@ -4,6 +4,9 @@
     {
       "Effect": "Allow",
       "Action": [
+        "ssm:GetParameters",
+        "secretsmanager:GetSecretValue",
+        "kms:Decrypt",
         "ecs:CreateCluster",
         "ecs:DeregisterContainerInstance",
         "ecs:DiscoverPollEndpoint",
