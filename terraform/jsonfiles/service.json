@@ -21,20 +21,18 @@
       {
         "name": "RACK_ENV",
         "value": "production"
-      }
-    ],
-    "secrets": [
+      },
       {
         "name": "DB_HOST",
-        "valueFrom": "DB_HOST"
+        "value": "weinance-ecs-terraform-db.csoipdqeamyl.ap-northeast-1.rds.amazonaws.com"
       },
       {
         "name": "DB_USER",
-        "valueFrom": "DB_USER"
+        "value": "root"
       },
       {
         "name": "DB_PASSWORD",
-        "valueFrom": "DB_PASSWORD"
+        "value": "password"
       }
     ],
     "logConfiguration": {
